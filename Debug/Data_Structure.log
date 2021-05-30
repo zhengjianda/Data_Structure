@@ -1,0 +1,12 @@
+﻿  main.cpp
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\dbllist.h(185): warning C4101: “i”: 未引用的局部变量
+  d:\mycode\数据结构实验\data_structure\data_structure\data_structure\main.cpp(67): note: 参见对正在编译的函数 模板 实例化“void Menu3<int>(DblList<int> &)”的引用
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\dbllist.h(183): warning C4101: “x”: 未引用的局部变量
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\seqqueue.h(92): warning C4101: “i”: 未引用的局部变量
+  d:\mycode\数据结构实验\data_structure\data_structure\data_structure\main.cpp(79): note: 参见对正在编译的函数 模板 实例化“void Menu5<int>(SeqQueue<int> &)”的引用
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\linkqueue.h(104): warning C4101: “i”: 未引用的局部变量
+  d:\mycode\数据结构实验\data_structure\data_structure\data_structure\main.cpp(85): note: 参见对正在编译的函数 模板 实例化“void Menu6<int>(LinkedQueue<int> &)”的引用
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\binarysearchtree2.h(41): warning C4101: “i”: 未引用的局部变量
+  d:\mycode\数据结构实验\data_structure\data_structure\data_structure\main.cpp(97): note: 参见对正在编译的函数 模板 实例化“void Menu8<int,int>(BST<int,int> &)”的引用
+d:\mycode\数据结构实验\data_structure\data_structure\data_structure\binarysearchtree.h(199): warning C4715: “BST<int,int>::Max”: 不是所有的控件路径都返回值
+  Data_Structure.vcxproj -> D:\Mycode\数据结构实验\Data_Structure\Data_Structure\Debug\Data_Structure.exe
