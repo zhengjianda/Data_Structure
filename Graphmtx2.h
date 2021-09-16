@@ -12,64 +12,53 @@ void Menu9(Graph<T, E>& G) {
 		switch (n)
 		{
 		case 1:
-			std::cout << "ÇëÊäÈë¶¥µãµÄÐÅÏ¢" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" << std::endl;
 			T v;
 			std::cin >> v;
 			G.insertVertex(v);
-			std::cout << "¶¥µã²åÈë³É¹¦" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" << std::endl;
 			break;
 		case 2:
-			std::cout << "²åÈë±ß: ÇëÒ»´ÎÊäÈë±ßµÄÁ½¸ö¶¥µãºÍÈ¨ÖØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½" << std::endl;
 			std::cin >> v1 >> v2 >> weight;
 			G.insertEdge(v1, v2, weight);
 			break;
 		case 3:
-			std::cout << "É¾³ýÒ»¸ö¶¥µã,ÇëÊäÈë¶¥µãµÄÐòºÅ" << std::endl;
+			std::cout << "É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			std::cin >> v1;
 			G.removeVertex(v1);
-			std::cout << "¶¥µãÉ¾³ý³É¹¦" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½É¹ï¿½" << std::endl;
 			break;
 		case 4:
-			std::cout << "É¾³ý±ß£¬ÇëÒÀ´ÎÊäÈëÁ½¸ö±ßµÄ¶¥µãµÄÐòºÅ" << std::endl;
+			std::cout << "É¾ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			std::cin >> v1 >> v2;
 			G.removeEdge(v1, v2);
-			std::cout << "±ßÉ¾³ý³É¹¦" << std::endl;
+			std::cout << "ï¿½ï¿½É¾ï¿½ï¿½ï¿½É¹ï¿½" << std::endl;
 			break;
 		case 5:
-			std::cout << "¶¥µãµÄ¸öÊýÎª" << G.NumberOfVertices() << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Îª" << G.NumberOfVertices() << std::endl;
 			break;
 		case 6:
-			std::cout << "±ßµÄÌõÊýÎª" << G.NumberOfEdges() << std::endl;
+			std::cout << "ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½Îª" << G.NumberOfEdges() << std::endl;
 			break;
 		case 7:
-			std::cout << "»ñÈ¡¶¥µãµÄÐòºÅ£¬ÇëÊäÈë¶¥µãµÄÏà¹ØÐÅÏ¢" << std::endl;
+			std::cout << "ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" << std::endl;
 			std::cin >> v1;
 			G.getVertexPos(v);
 			break;
 		case 8:
-			std::cout << "Í¼ÖÐµÄËùÓÐÁ¬Í¨·ÖÁ¿Îª:" << std::endl;
+			std::cout << "Í¼ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Îª:" << std::endl;
 			Components(G);
 			std::cout << std::endl;
 			break;
 		case 9:
-			std::cout << "Êä³öÍ¼:" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½Í¼:" << std::endl;
 			G.Output();
 			std::cout << std::endl;
 			break;
 		default:
-			std::cout << "½áÊøÁËÂå" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			return;
 		}
 	}
 }
-/*int main()
-{
-	Graphmtx<int, int> myGraph = Graphmtx<int, int>(50);
-
-	//GraphLink<int, int> myGraphLink = GraphLink<int, int>(100);
-	Menu(myGraph);
-	//myGraph.Output();
-	//DFS(myGraph, 0);
-	std::cout << "Hello world" << std::endl;
-	return 0;
-}*/

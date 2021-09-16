@@ -9,8 +9,8 @@ public:
 	{
 		delete[] elements;
 	}
-	bool EnQueue(const T& x); // ¶ÓÁÐ²»Âú£¬½ø¶ÓÁÐ£¬·ñÔò±¨³öÒç³ö
-	virtual bool DeQueue(T& x); //ÍË³ö±íÍ·ÔªËØ
+	bool EnQueue(const T& x); // ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ò±¨³ï¿½ï¿½ï¿½ï¿½ï¿½
+	virtual bool DeQueue(T& x); //ï¿½Ë³ï¿½ï¿½ï¿½Í·Ôªï¿½ï¿½
 	virtual bool getFront(T& x);
 	void makeEmpty() {
 		front = rear = 0;
@@ -25,8 +25,8 @@ public:
 		return (rear - front + maxSize) % maxSize;
 	}
 	void Output() {
-		if (IsEmpty() == true) {   //ÈÎÒâ¶Ô¶ÓÁÐµÄ²Ù×÷¶¼ÒªÏÈ¼ì²é¶ÓÁÐÊÇ·ñÎª¿Õ
-			std::cout << "µ±Ç°¶ÓÁÐÎª¿Õ" << std::endl;
+		if (IsEmpty() == true) {   //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
+			std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 			return;
 		}
 		for (int i = front, j = 1; i != rear; (i++) % maxSize, j++) {
@@ -34,8 +34,8 @@ public:
 		}
 	}
 protected:
-	int rear, front;   //¶ÓÎ² ºÍ¶ÓÍ·Ö¸Õë(ÒòÎªÊÇÊý×é±íÊ¾£¬ÓÃÏÂ±êindex×÷ÎªÖ¸Õë)
-	T* elements;   //ÒÔÊý×éÎª´¢´æÊý¾Ý½á¹¹
+	int rear, front;   //ï¿½ï¿½Î² ï¿½Í¶ï¿½Í·Ö¸ï¿½ï¿½(ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½indexï¿½ï¿½ÎªÖ¸ï¿½ï¿½)
+	T* elements;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹
 	int maxSize;
 };
 template<class T>
@@ -71,15 +71,15 @@ bool SeqQueue<T>::getFront(T& x) {
 }
 void print_menu5()
 {
-	std::cout << "1------ÊäÈëÔªËØÈë¶ÓÁÐ\n"
-		<< "2------Êä³ö¶ÓÁÐÔªËØ\n"
-		<< "3------¶ÓÍ·ÔªËØ³ö¶ÓÁÐ£¬²¢·µ»Ø³ö¶ÓÁÐµÄÔªËØÖµ\n"
-		<< "4------»ñµÃ¶ÓÍ·ÔªËØ\n"
-		<< "5------ÅÐ¶Ï¶ÓÁÐÊÇ·ñÎª¿Õ\n"
-		<< "6------ÅÐ¶Ï¶ÓÁÐÊÇ·ñÒÑÂú\n"
-		<< "7------»ñÈ¡µ±Ç°¶ÓÁÐµÄÔªËØ¸öÊý\n"
-		<< "8------ÍË³ö\n"
-		<< "ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷£¨1-8s£©: ";
+	std::cout << "1------ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "2------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½\n"
+		<< "3------ï¿½ï¿½Í·Ôªï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½Öµ\n"
+		<< "4------ï¿½ï¿½ï¿½Ã¶ï¿½Í·Ôªï¿½ï¿½\n"
+		<< "5------ï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½\n"
+		<< "6------ï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "7------ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½\n"
+		<< "8------ï¿½Ë³ï¿½\n"
+		<< "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½1-8sï¿½ï¿½: ";
 }
 template<class T>
 void Menu5(SeqQueue<T> & myQueue)
@@ -92,7 +92,7 @@ void Menu5(SeqQueue<T> & myQueue)
 			int i;
 			T x;
 		case 1:
-			std::cout << "ÇëÊäÈëÒª½øÈë¶ÓÁÐµÄÔªËØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½" << std::endl;
 			std::cin >> x;
 			myQueue.EnQueue(x);
 			break;
@@ -101,40 +101,32 @@ void Menu5(SeqQueue<T> & myQueue)
 			break;
 		case 3:
 			myQueue.DeQueue(x);
-			std::cout << "¶ÓÍ·ÔªËØ" << x << "ÒÑ¾­³ö¶ÓÁÐ" << std::endl;
+			std::cout << "ï¿½ï¿½Í·Ôªï¿½ï¿½" << x << "ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			break;
 		case 4:
 			myQueue.getFront(x);
-			std::cout << "µ±Ç°¶ÓÁÐ¶ÓÍ·ÔªËØÎª" << x << std::endl;
+			std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ð¶ï¿½Í·Ôªï¿½ï¿½Îª" << x << std::endl;
 			break;
 		case 5:
 			if (myQueue.IsEmpty())
-				std::cout << "µ±Ç°¶ÓÁÐÎª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 			else
-				std::cout << "µ±Ç°¶ÓÁÐ²»Îª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ð²ï¿½Îªï¿½ï¿½" << std::endl;
 			break;
 		case 6:
 			if (myQueue.IsFull()) {
-				std::cout << "µ±Ç°¶ÓÁÐÒÑÂú" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			}
 			else {
-				std::cout << "µ±Ç°¶ÓÁÐÎ´Âú" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½" << std::endl;
 			}
 			break;
 		case 7:
-			std::cout << "µ±Ç°¶ÓÁÐµÄÔªËØ¸öÊý " << myQueue.getSize() << std::endl;
+			std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½ " << myQueue.getSize() << std::endl;
 			break;
 		default:
-			std::cout << "Âå£ºÏ¼£¬½áÊøÁË" << std::endl;
+			std::cout << "ï¿½å£ºÏ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			return;
 		}
 	}
 }
-/*int main()
-{
-	SeqQueue<int> myQueue(50);
-	Menu<int>(myQueue);
-	std::cout << "Hello world" << std::endl;
-	return 0;
-}*/
-

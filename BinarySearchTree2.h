@@ -5,10 +5,10 @@ const int Mymax = 999999999;
 template<class E, class K>
 bool IsBST2(BSTNode<E, K>* node, int min, int max) {
 	if (node == nullptr) {
-		return true;  //¿ÕÊ÷Îª¶þ²æËÑË÷Ê÷
+		return true;  //ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	else if (node->data <= min || node->data >= max) {
-		return false;  //²»·ûºÏ¶þ²æËÑË÷Ê÷µÄ¹æ¶¨
+		return false;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹æ¶¨
 	}
 	else {
 		return (IsBST2(node->left, min, node->data) && IsBST2(node->right, node->data, max));
@@ -17,18 +17,18 @@ bool IsBST2(BSTNode<E, K>* node, int min, int max) {
 
 }
 template<class E, class K>
-bool IsBST1(BSTNode<E, K>* ptr) {   //Ö¸¶¨MyminÎª-ÎÞÇî£¬MymaxÎª+ÎÞÇî
+bool IsBST1(BSTNode<E, K>* ptr) {   //Ö¸ï¿½ï¿½MyminÎª-ï¿½ï¿½ï¿½î£¬MymaxÎª+ï¿½ï¿½ï¿½ï¿½
 	return (IsBST2(ptr, Mymin, Mymax));
 }
 void print_menu8() {
-	std::cout << " 1------²åÈëÒ»¸öÔªËØ\n"
-		<< " 2------Êä³öÊ÷ÖÐµÄ½áµãÔªËØ\n"
-		<< " 3------É¾³ýÊ÷ÖÐµÄ½áµãÔªËØ\n"
-		<< " 4------²éÕÒÊ÷ÖÐÔªËØµÄÎ»ÖÃ\n"
-		<< " 5------Ê÷ÖÐµÄ×îÐ¡Öµ\n"
-		<< " 6------Ê÷ÖÐµÄ×î´óÖµ\n"
-		<< " 7------ÍË³ö\n"
-		<< " ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷: ";
+	std::cout << " 1------ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½\n"
+		<< " 2------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ½ï¿½ï¿½ï¿½Ôªï¿½ï¿½\n"
+		<< " 3------É¾ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ½ï¿½ï¿½ï¿½Ôªï¿½ï¿½\n"
+		<< " 4------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Î»ï¿½ï¿½\n"
+		<< " 5------ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ð¡Öµ\n"
+		<< " 6------ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Öµ\n"
+		<< " 7------ï¿½Ë³ï¿½\n"
+		<< " ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½: ";
 }
 template<class T, class E>
 void Menu8(BST<T, E> & myBinarySearchTree) {
@@ -41,68 +41,34 @@ void Menu8(BST<T, E> & myBinarySearchTree) {
 			int i;
 			T x;
 		case 1:
-			std::cout << "ÇëÊäÈëÒª²åÈëµÄÔªËØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½" << std::endl;
 			std::cin >> x;
 			myBinarySearchTree.Insert(x);
 			break;
 		case 2:
-			std::cout << "Êä³öËÑË÷Ê÷µÄ½áµã" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½" << std::endl;
 			myBinarySearchTree.PrintTree();
 			break;
 		case 3:
-			std::cout << "ÇëÊäÈëÒªÉ¾³ýµÄÔªËØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½" << std::endl;
 			std::cin >> x;
 			myBinarySearchTree.Remove(x);
-			std::cout << x << "ÒÑ¾­É¾³ý" << std::endl;
+			std::cout << x << "ï¿½Ñ¾ï¿½É¾ï¿½ï¿½" << std::endl;
 			break;
 		case 4:
-			std::cout << "ÇëÊäÈëÒª²éÕÒµÄÔªËØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Òµï¿½Ôªï¿½ï¿½" << std::endl;
 			std::cin >> x;
 			myBinarySearchTree.Search(x);
 			break;
 		case 5:
-			std::cout << "ËÑË÷Ê÷µÄ×îÐ¡ÖµÎª" << myBinarySearchTree.Min() << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ÖµÎª" << myBinarySearchTree.Min() << std::endl;
 			break;
 		case 6:
-			std::cout << "ËÑË÷Ê÷µÄ×î´óÖµÎª" << myBinarySearchTree.Max() << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª" << myBinarySearchTree.Max() << std::endl;
 			break;
 		default:
-			std::cout << "Âå£º½áÊøÁË" << std::endl;
+			std::cout << "ï¿½å£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			return;
 		}
 	}
 }
-/*int main()
-{
-	BST<int, int> myBinarySearchTree = BST<int, int>();
-	Menu8(myBinarySearchTree);
-	/*myBinarySearchTree.Insert(3);
-	myBinarySearchTree.Insert(5);
-	myBinarySearchTree.Insert(23);
-	myBinarySearchTree.Insert(9);
-	myBinarySearchTree.Insert(10);  //²åÈë
-	myBinarySearchTree.Insert(15);
-	myBinarySearchTree.Insert(2);
-	myBinarySearchTree.Insert(24);
-	myBinarySearchTree.PrintTree();  //Êä³ö
-	myBinarySearchTree.Remove(23);  //É¾³ý
-	myBinarySearchTree.PrintTree();
-	bool judge=myBinarySearchTree.Search(24);
-	std::cout << judge << std::endl;
-	std::cout << std::endl;
-	std::cout<<"×îÐ¡ÖµÎª" << myBinarySearchTree.Min() << std::endl;
-	std::cout << "×î´óÖµÎª" << myBinarySearchTree.Max() << std::endl;
-	bool Judge = false;
-	Judge=IsBST1<int, int>(myBinarySearchTree.Getroot());
-	std::cout << "ÊÇ·ñÎª¶þ²æËÑË÷Ê÷" << Judge << std::endl;
-	int a = 0;
-	myBinarySearchTree.SortInOrder(myBinarySearchTree.Getroot(), a);
-	for (int i = 0; i < 20; i++) {
-		std::cout << SortArray[i] << " ";
-	}
-	myBinarySearchTree.Remove(myBinarySearchTree.Max());
-	std::cout << std::endl;
-	myBinarySearchTree.RemoveMax(myBinarySearchTree.Getroot());
-	myBinarySearchTree.PrintTree();
-	return 0;
-}*/

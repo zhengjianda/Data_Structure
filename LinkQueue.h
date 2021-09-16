@@ -12,7 +12,7 @@ public:
 		makeEmpty();
 	}
 	virtual bool IsFull() const {
-		std::cout << "ºÙºÙºÙ" << std::endl;
+		std::cout << "ï¿½ÙºÙºï¿½" << std::endl;
 		return true;
 	};
 	bool EnQueue(const T& x);
@@ -47,7 +47,7 @@ void LinkedQueue<T>::makeEmpty() {
 template<class T>
 bool LinkedQueue<T>::EnQueue(const T& x) {
 	if (front == nullptr) {
-		front = rear = new LinkNode1<T>(x); //¿Õ¶ÓÁÐ½øµÚÒ»¸öÔªËØ
+		front = rear = new LinkNode1<T>(x); //ï¿½Õ¶ï¿½ï¿½Ð½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
 	}
 	else {
 		rear->link = new LinkNode1<T>(x);
@@ -84,14 +84,14 @@ int LinkedQueue<T>::getSize()const {
 }
 void print_menu6()
 {
-	std::cout << "1------ÊäÈëÔªËØÈë¶ÓÁÐ\n"
-		<< "2------Êä³ö¶ÓÁÐÔªËØ\n"
-		<< "3------¶ÓÍ·ÔªËØ³ö¶ÓÁÐ£¬²¢·µ»Ø³ö¶ÓÁÐµÄÔªËØÖµ\n"
-		<< "4------»ñµÃ¶ÓÍ·ÔªËØ\n"
-		<< "5------ÅÐ¶Ï¶ÓÁÐÊÇ·ñÎª¿Õ\n"
-		<< "6------»ñÈ¡µ±Ç°¶ÓÁÐµÄÔªËØ¸öÊý\n"
-		<< "7------ÍË³ö\n"
-		<< "ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷£¨1-8s£©: ";
+	std::cout << "1------ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "2------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½\n"
+		<< "3------ï¿½ï¿½Í·Ôªï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½Öµ\n"
+		<< "4------ï¿½ï¿½ï¿½Ã¶ï¿½Í·Ôªï¿½ï¿½\n"
+		<< "5------ï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½\n"
+		<< "6------ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½\n"
+		<< "7------ï¿½Ë³ï¿½\n"
+		<< "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½1-8sï¿½ï¿½: ";
 }
 template<class T>
 void Menu6(LinkedQueue<T> & myQueue)
@@ -104,7 +104,7 @@ void Menu6(LinkedQueue<T> & myQueue)
 			int i;
 			T x;
 		case 1:
-			std::cout << "ÇëÊäÈëÒª½øÈë¶ÓÁÐµÄÔªËØ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½" << std::endl;
 			std::cin >> x;
 			myQueue.EnQueue(x);
 			break;
@@ -113,34 +113,24 @@ void Menu6(LinkedQueue<T> & myQueue)
 			break;
 		case 3:
 			myQueue.DeQueue(x);
-			std::cout << "¶ÓÍ·ÔªËØ" << x << "ÒÑ¾­³ö¶ÓÁÐ" << std::endl;
+			std::cout << "ï¿½ï¿½Í·Ôªï¿½ï¿½" << x << "ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			break;
 		case 4:
 			myQueue.getFront(x);
-			std::cout << "µ±Ç°¶ÓÁÐ¶ÓÍ·ÔªËØÎª" << x << std::endl;
+			std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ð¶ï¿½Í·Ôªï¿½ï¿½Îª" << x << std::endl;
 			break;
 		case 5:
 			if (myQueue.IsEmpty())
-				std::cout << "µ±Ç°¶ÓÁÐÎª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 			else
-				std::cout << "µ±Ç°¶ÓÁÐ²»Îª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ð²ï¿½Îªï¿½ï¿½" << std::endl;
 			break;
 		case 6:
-			std::cout << "µ±Ç°¶ÓÁÐµÄÔªËØ¸öÊý " << myQueue.getSize() << std::endl;
+			std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½ " << myQueue.getSize() << std::endl;
 			break;
 		default:
-			std::cout << "Âå£ºÏ¼£¬½áÊøÁË" << std::endl;
+			std::cout << "ï¿½å£ºÏ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			return;
 		}
 	}
 }
-/*int main()
-{
-	LinkedQueue<int> myQueue;
-	Menu<int>(myQueue);
-	std::cout << "Hello world" << std::endl;
-	return 0;
-}*/
-
-
-

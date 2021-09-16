@@ -2,9 +2,9 @@
 #include"heap.h"
 const int DefaultSize11 = 20;
 template<class T>
-struct HuffmanNode    //HuffmanÊ÷½áµãµÄÀà¶¨Òå
+struct HuffmanNode    //Huffmanï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¶¨ï¿½ï¿½
 {
-	T data;    //½áµãÊý¾Ý                                           //×ó×ÓÊ÷ÓÒ×ÓÊ÷ºÍ¸¸½áµã
+	T data;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                                           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	HuffmanNode* leftChild = new HuffmanNode();
 	HuffmanNode* rightChild = new HuffmanNode();
 	HuffmanNode* parent = new HuffmanNode();
@@ -25,7 +25,7 @@ struct HuffmanNode    //HuffmanÊ÷½áµãµÄÀà¶¨Òå
 template<class T>
 class HuffmanTree {
 public:
-	HuffmanTree(T w[], int n);  //¹¹Ôìº¯Êý
+	HuffmanTree(T w[], int n);  //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	~HuffmanTree()
 	{
 		//deleteTree(root);
@@ -44,7 +44,7 @@ public:
 		}
 		else
 		{
-			std::cout << "Ê÷ÒÑÊä³öÍê±Ï»òÊ÷Îª¿Õ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 		}
 	}
 	HuffmanNode<T>* root;
@@ -54,30 +54,30 @@ protected:
 };
 template<class T>
 HuffmanTree<T>::HuffmanTree(T w[], int n) {
-	MinHeap<HuffmanNode<T>> hp;    //Ê¹ÓÃ×îÐ¡¶Ñ´æ·ÅÉ­ÁÖ
+	MinHeap<HuffmanNode<T>> hp;    //Ê¹ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ñ´ï¿½ï¿½ï¿½É­ï¿½ï¿½
 	HuffmanNode<T> *parent = nullptr;
 	HuffmanNode<T> cur;
-	for (int i = 0; i < n; i++) {  //É­ÁÖ¸÷¿ÃÊ÷³õÊ¼»¯
-		cur.data = w[i];  //¸÷¸ö½áµãµÄÈ¨Öµ
+	for (int i = 0; i < n; i++) {  //É­ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+		cur.data = w[i];  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨Öµ
 		cur.leftChild = nullptr;
 		cur.rightChild = nullptr;
 		cur.parent = nullptr;
-		hp.Insert(cur);   //½«¸÷Ê÷´æÈë¶ÑÖÐ
+		hp.Insert(cur);   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
-	for (int i = 0; i < n - 1; i++) { //×ön-1ÌË£¬ÐÎ³ÉHuffmanÊ÷
+	for (int i = 0; i < n - 1; i++) { //ï¿½ï¿½n-1ï¿½Ë£ï¿½ï¿½Î³ï¿½Huffmanï¿½ï¿½
 		HuffmanNode<T> *first = new HuffmanNode<T>;
 		HuffmanNode<T> *second = new HuffmanNode<T>;
 		hp.RemoveMin(*first);
-		hp.RemoveMin(*second);  //Ñ¡ÔñÁ½¸öÈ¨Öµ×îÐ¡µÄÊ÷
-		mergeTree(*first, *second, parent);   //ºÏ²¢£¬ÐÎ³ÉÒ»¿ÃÊ÷
-		hp.Insert(*parent);  // ½«ÐÂÊ÷ÖØÐÂ²åÈëµ½×îÐ¡¶ÑÖÐ
+		hp.RemoveMin(*second);  //Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨Öµï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
+		mergeTree(*first, *second, parent);   //ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Î³ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+		hp.Insert(*parent);  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ëµ½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 		if (i != n - 2)
 			delete parent;
 	}
 	root = parent;
 }
 template<class T>
-void HuffmanTree<T>::mergeTree(HuffmanNode<T>& bt1, HuffmanNode<T>& bt2, HuffmanNode<T>* &parent) {  //ºÏ²¢×ÓÊ÷
+void HuffmanTree<T>::mergeTree(HuffmanNode<T>& bt1, HuffmanNode<T>& bt2, HuffmanNode<T>* &parent) {  //ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½
 	parent = new HuffmanNode<T>;
 	parent->leftChild = &bt1;
 	parent->rightChild = &bt2;
@@ -88,18 +88,3 @@ void CreateHuffmanTree(int a[], int len) {
 	HuffmanTree<int> myHuffmanTree(a, len);
 	myHuffmanTree.PrintBTree(myHuffmanTree.root);
 }
-/*int main()
-{
-	int power[10] = { 1,2,7,4,5 };
-	/*HuffmanTree<int> myHuffmanTree(power, 5);
-	std::cout << myHuffmanTree.root->data << std::endl;
-	//myHuffmanTree.root->leftChild->data = 1000;
-	if(myHuffmanTree.root->leftChild!=nullptr)
-		std::cout << myHuffmanTree.root->leftChild->data<< std::endl;
-	std::cout << myHuffmanTree.root->rightChild->data << std::endl;
-	std::cout <<"¹ãÒå±íÊä³ö"<< std::endl;
-	myHuffmanTree.PrintBTree(myHuffmanTree.root);
-	CreateHuffmanTree(power, 5);
-	return 0;
-
-}*/

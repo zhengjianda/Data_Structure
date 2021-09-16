@@ -6,7 +6,7 @@ enum tag1
 	L, R
 };
 template<class T>
-struct BinTreeNode {  //½áµãÊý¾ÝÀàÐÍ
+struct BinTreeNode {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	T data;
 	BinTreeNode<T> * leftChild, *rightChild;
 	BinTreeNode() :leftChild(nullptr), rightChild(nullptr) {
@@ -18,7 +18,7 @@ struct BinTreeNode {  //½áµãÊý¾ÝÀàÐÍ
 };
 template<class T>
 struct strNode {
-	BinTreeNode<T> *ptr;    //Ê÷½ÚµãÖ¸Õë
+	BinTreeNode<T> *ptr;    //ï¿½ï¿½ï¿½Úµï¿½Ö¸ï¿½ï¿½
 	tag1 tag;
 	strNode(BinTreeNode<T>* N = nullptr) :ptr(N), tag(L) {
 
@@ -28,7 +28,7 @@ template<class T>
 class BinaryTree {
 public:
 	BinaryTree() :root(nullptr) {
-		RefValue = -1;   //Ê÷ÖÕÖ¹µÄ±êÖ¾
+		RefValue = -1;   //ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½Ä±ï¿½Ö¾
 	}
 	BinaryTree(BinTreeNode<T>* root1) {
 		root = root1;
@@ -42,26 +42,26 @@ public:
 	bool IsEmpty() {
 		return ((root == nullptr) ? true : false);
 	}
-	BinTreeNode<T> * Parent(BinTreeNode<T> *current) {   //·µ»Ø¸¸½Úµã
+	BinTreeNode<T> * Parent(BinTreeNode<T> *current) {   //ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Úµï¿½
 		return (root == nullptr || root == current) ? nullptr : Parent(root, current);
 	}
-	BinTreeNode<T> * LeftChild(BinTreeNode<T>* current) {    //·µ»Ø×ó×ÓÅ®
+	BinTreeNode<T> * LeftChild(BinTreeNode<T>* current) {    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å®
 		return (current != nullptr) ? current->leftChild : nullptr;
 	}
-	BinTreeNode<T> * RightChild(BinaryTree<T>* current) {     //·µ»ØÓÒ×ÓÅ®
+	BinTreeNode<T> * RightChild(BinaryTree<T>* current) {     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å®
 		return (current != nullptr) ? current->RightChild : nullptr;
 	}
 	int Height() {
-		return Height(root); //·µ»ØÊ÷¸ß¶È
+		return Height(root); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½
 	}
-	int Size() {         //·µ»Ø½áµãÊý
+	int Size() {         //ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return Size(root);
 	}
 	BinTreeNode<T> * getRoot() const {
-		return root;           //È¡¸ù
+		return root;           //È¡ï¿½ï¿½
 	}
 	void preOrder(BinTreeNode<T>* & subTree);
-	void preOrder2(BinTreeNode<T>* & subTree);  //Ç°Ðò·ÇµÝ¹éËã·¨
+	void preOrder2(BinTreeNode<T>* & subTree);  //Ç°ï¿½ï¿½ï¿½ÇµÝ¹ï¿½ï¿½ã·¨
 	void inOrder(BinTreeNode<T>* &p);
 	void inOrder2(BinTreeNode<T>* &p);
 	void postOrder(BinTreeNode<T>* &subTree);
@@ -79,7 +79,7 @@ public:
 			std::cout << p->data << " ";
 		}
 		else {
-			std::cout << "½áµãÎª¿Õ" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 		}
 	}
 	void CreateBinTree(BinTreeNode<T>* &subtree);
@@ -98,35 +98,35 @@ public:
 template<class T>
 void BinaryTree<T>::destroy(BinTreeNode<T>* &subTree) {
 	if (subTree != nullptr) {
-		destroy(subTree->leftChild); //´Ý»Ù×ó×ÓÊ÷
-		destroy(subTree->rightChild); //´Ý»ÙÓÒ×ÓÊ÷
-		delete subTree;  //´Ý»Ù¸ù
+		destroy(subTree->leftChild); //ï¿½Ý»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		destroy(subTree->rightChild); //ï¿½Ý»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		delete subTree;  //ï¿½Ý»Ù¸ï¿½
 	}
 }
 template<class T>
 BinTreeNode<T> * BinaryTree<T>::Parent(BinTreeNode<T>* subTree, BinTreeNode<T>* current) {
 	if (subTree == nullptr) {
-		return nullptr;       //¿ÕÊ÷ ±¨´í
+		return nullptr;       //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	if (subTree->leftChild == current || subTree->rightChild == current)
-		return subTree;         //ÕÒµ½£¬·µ»Ø¸¸½Úµã
+		return subTree;         //ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Úµï¿½
 	BinTreeNode<T> *p;
 	if ((p = Parent(subTree->leftChild, current)) != nullptr) {
-		return p;   //´Ó×ó×ÓÊ÷¼ÌÐøÕÒ
+		return p;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
-	else               //´ÓÓÒ×ÓÊ÷¼ÌÐøÕÒ 
+	else               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return Parent(subTree->rightChild, current);
 }
 template<class T>
-void BinaryTree<T>::Traverse(BinTreeNode<T>* subTree, std::ostream& out) {  //Ë½ÓÐº¯Êý£¬ËÑË÷²¢Êä³ö¸ùÎªsubTreeµÄ¶þ²æÊ÷
+void BinaryTree<T>::Traverse(BinTreeNode<T>* subTree, std::ostream& out) {  //Ë½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªsubTreeï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (subTree != nullptr) {
-		out << subTree->data << " ";   //Êä³ö¸ùµÄÊý¾Ý
-		Traverse(subTree->leftChild, out); //×ó×ÓÊ÷Êä³ö
-		Traverse(subTree->rightChild, out); //ÓÒ×ÓÊ÷Êä³ö
+		out << subTree->data << " ";   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		Traverse(subTree->leftChild, out); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		Traverse(subTree->rightChild, out); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 };
 template<class T>
-void BinaryTree<T>::levelOrder(BinTreeNode<T>* subtree) {   //²ã´Î±éÀú
+void BinaryTree<T>::levelOrder(BinTreeNode<T>* subtree) {   //ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½
 	std::queue<BinTreeNode<T>*> MyQue;
 	BinTreeNode<T> *p = subtree;
 	MyQue.push(p);
@@ -147,7 +147,7 @@ std::istream& operator >>(std::istream& in, BinaryTree<T>& Tree) {
 }
 template<class T>
 std::ostream& operator <<(std::ostream& out, BinaryTree<T>& Tree) {
-	out << "¶þ²æÊ÷µÄÇ°Ðò±éÀú\n";
+	out << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 	Tree.Traverse(Tree.root, out);
 	out << std::endl;
 	return out;
@@ -155,14 +155,14 @@ std::ostream& operator <<(std::ostream& out, BinaryTree<T>& Tree) {
 template<class T>
 void BinaryTree<T>::inOrder(BinTreeNode<T> * &subTree) {
 	if (subTree != nullptr) {
-		inOrder(subTree->leftChild); //ÖÐÐò±éÀú¸ùµÄ×ó×ÓÊ÷ : ×ó¸ùÓÒ
-		//visit(subTree);  //·ÃÎÊ¸ù½Úµã
+		inOrder(subTree->leftChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//visit(subTree);  //ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½Úµï¿½
 		std::cout << subTree->data << " ";
-		inOrder(subTree->rightChild); //ÖÐÐò±éÀú¸ùµÄÓÒ×ÓÊ÷
+		inOrder(subTree->rightChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 }
 template<class T>
-void BinaryTree<T>::inOrder2(BinTreeNode<T>* &subTree) {  //ÖÐÐò±éÀúÊ÷·ÇµÝ¹éËã·¨
+void BinaryTree<T>::inOrder2(BinTreeNode<T>* &subTree) {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÝ¹ï¿½ï¿½ã·¨
 	std::stack<BinTreeNode<T>*> mystack;
 	BinTreeNode<T> *p = this->root;
 	do {
@@ -181,19 +181,19 @@ void BinaryTree<T>::inOrder2(BinTreeNode<T>* &subTree) {  //ÖÐÐò±éÀúÊ÷·ÇµÝ¹éËã·¨
 template<class T>
 void BinaryTree<T>::preOrder(BinTreeNode<T>* &subTree) {
 	if (subTree != nullptr) {
-		std::cout << subTree->data << " ";  //¸ù  ×óÓÒ
-		preOrder(subTree->leftChild); //Ç°Ðò±éÀú¸ùµÄ×ó×ÓÊ÷
-		preOrder(subTree->rightChild); //Ç°Ðò±éÀú¸ùµÄÓÒ×ÓÊ÷
+		std::cout << subTree->data << " ";  //ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½
+		preOrder(subTree->leftChild); //Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		preOrder(subTree->rightChild); //Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 }
 template<class T>
 void BinaryTree<T>::preOrder2(BinTreeNode<T>* &subTree) {
 	std::stack <BinTreeNode<T> *> mystack;
-	BinTreeNode<T> *p = root;  //±éÀúË³Ðò£º¸ù×óÓÒ
+	BinTreeNode<T> *p = root;  //ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ò£º¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	while (p != nullptr) {
-		std::cout << p->data << " ";  //ÏÈ´¦Àí¸ù
-		if (p->leftChild&&p->rightChild) {  //Í¬Ê±ÓµÓÐ×óÓÒ×ÓÊ÷
-			mystack.push(p);  //ÓÐÁ½¸ö¸ù£¬Ö»ÄÜÏÈ´¦ÀíÒ»¸ö¸ù£¬ÐèÒªÏÈ°Ñ½áµã±£´æÔÚÕ»£¬ÒÔ±ã±éÀúÓÒ×ÓÊ÷
+		std::cout << p->data << " ";  //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (p->leftChild&&p->rightChild) {  //Í¬Ê±Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			mystack.push(p);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½È°Ñ½ï¿½ï¿½ã±£ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			p = p->leftChild;
 		}
 		else if (p->leftChild) {
@@ -217,9 +217,9 @@ void BinaryTree<T>::preOrder2(BinTreeNode<T>* &subTree) {
 template<class T>
 void BinaryTree<T>::postOrder(BinTreeNode<T>* &subTree) {
 	if (subTree != nullptr) {
-		postOrder(subTree->leftChild); //ºóÐø±éÀú¸ùµÄ×ó×ÓÊ÷
-		postOrder(subTree->rightChild); //ºóÐø±éÀú¸ùµÄÓÒ×ÓÊ÷
-		std::cout << subTree->data << " "; //¸ù½Úµã
+		postOrder(subTree->leftChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		postOrder(subTree->rightChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		std::cout << subTree->data << " "; //ï¿½ï¿½ï¿½Úµï¿½
 	}
 }
 
@@ -251,7 +251,7 @@ void BinaryTree<T>::postOrder2(BinTreeNode<T>* &subTree) {
 				std::cout << p->data << " ";
 				break;
 			default:
-				std::cout << "ÊäÈë´íÎó" << std::endl;
+				std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 				break;
 			}
 		}
@@ -259,11 +259,11 @@ void BinaryTree<T>::postOrder2(BinTreeNode<T>* &subTree) {
 	std::cout << std::endl;
 }
 template<class T>
-int BinaryTree<T>::Size(BinTreeNode<T>* subTree) const {  //Ñ°ÕÒ½áµãµÄ¸öÊý
+int BinaryTree<T>::Size(BinTreeNode<T>* subTree) const {  //Ñ°ï¿½Ò½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 	if (subTree == nullptr)
-		return 0;  //¿ÕÊ÷Îª0
+		return 0;  //ï¿½ï¿½ï¿½ï¿½Îª0
 	else
-		return 1 + Size(subTree->leftChild) + Size(subTree->rightChild); //×ó×ÓÊ÷½áµã+ÓÒ×ÓÊ÷½áµã+1
+		return 1 + Size(subTree->leftChild) + Size(subTree->rightChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
 }
 template<class T>
 int BinaryTree<T>::Height(BinTreeNode<T>* subtree) const {
@@ -272,30 +272,30 @@ int BinaryTree<T>::Height(BinTreeNode<T>* subtree) const {
 	else {
 		int i = Height(subtree->leftChild);
 		int j = Height(subtree->rightChild);
-		return ((i < j) ? j + 1 : i + 1);  //ÕÒ×î¸ß×ÓÊ÷+1
+		return ((i < j) ? j + 1 : i + 1);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
 
 	}
 }
 template<class T>
 BinaryTree<T>::BinaryTree(const BinaryTree<T>& s) {
-	root = Copy(s.root);  //¸´ÖÆ¹¹Ôìº¯Êý
+	root = Copy(s.root);  //ï¿½ï¿½ï¿½Æ¹ï¿½ï¿½ìº¯ï¿½ï¿½
 }
 template<class T>
 BinTreeNode<T>* BinaryTree<T>::Copy(BinTreeNode<T>* orignode) {
-	if (orignode == nullptr)  //¸ùÎª¿Õ£¬·µ»Ø¿ÕÖ¸Õë
+	if (orignode == nullptr)  //ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½Ø¿ï¿½Ö¸ï¿½ï¿½
 		return nullptr;
 	BinTreeNode<T> *temp = new BinTreeNode<T>;
-	temp->data = orignode->data; //´«ËÍ¸ùÊý¾Ý
-	temp->leftChild = Copy(orignode->leftChild); //¸´ÖÆ×ó×ÓÊ÷
-	temp->rightChild = Copy(orignode->rightChild);  //¸´ÖÆÓÒ×ÓÊ÷
+	temp->data = orignode->data; //ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	temp->leftChild = Copy(orignode->leftChild); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	temp->rightChild = Copy(orignode->rightChild);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	return temp;
 }
 template<class T>
 int operator ==(const BinaryTree<T>& s, const BinaryTree<T>& t) {
-	return (equal(s.root, t.root)) ? true : false;     //ÅÐ¶ÏÁ½¿Ã¶þ²æÊ÷µÄµÈ¼ÛÐÔ£¬¼ÙµÄËüÊÇBinaryTreeÀàµÄÓÑÔªº¯Êý
+	return (equal(s.root, t.root)) ? true : false;     //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÈ¼ï¿½ï¿½Ô£ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½BinaryTreeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½
 }
 template<class T>
-bool equal(BinTreeNode<T>* a, BinTreeNode<T> *b) {  //ÅÐ¶ÏÁ½¸ö½áµã´ú±íµÄÊÇ²»ÊÇÍ¬Ò»¸ùÊ÷
+bool equal(BinTreeNode<T>* a, BinTreeNode<T> *b) {  //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½
 	if (a == nullptr&&b == nullptr)
 		return true;
 	if (a != nullptr&&b != nullptr&&a->data == b->data && equal(a->leftChild, b->leftChild) && equal(a->rightChild, b->rightChild))
@@ -306,19 +306,19 @@ bool equal(BinTreeNode<T>* a, BinTreeNode<T> *b) {  //ÅÐ¶ÏÁ½¸ö½áµã´ú±íµÄÊÇ²»ÊÇÍ¬
 template<class T>
 void BinaryTree<T>::CreateBinTree(BinTreeNode<T>* &subtree) {
 	T item;
-	if (!(std::cin.eof())) {   //Î´¶ÁÍê£¬¶ÁÈë²¢½¨Ê÷
-		std::cin >> item;  //¶ÁÈë¸ù½áµãµÄÖµ
+	if (!(std::cin.eof())) {   //Î´ï¿½ï¿½ï¿½ê£¬ï¿½ï¿½ï¿½ë²¢ï¿½ï¿½ï¿½ï¿½
+		std::cin >> item;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 		if (item != RefValue) {
-			subtree = new BinTreeNode<T>(item); //½¨Á¢¸ù½áµã
+			subtree = new BinTreeNode<T>(item); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (subtree == nullptr) {
-				std::cerr << "´æ´¢·ÖÅä´íÎó" << std::endl;
+				std::cerr << "ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 				exit(1);
 			}
-			CreateBinTree(subtree->leftChild);  //µÝ¹é½¨Á¢×ó×ÓÊ÷dAD 
-			CreateBinTree(subtree->rightChild); //µÝ¹é½¨Á¢ÓÒ×ÓÊ÷
+			CreateBinTree(subtree->leftChild);  //ï¿½Ý¹é½¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dAD
+			CreateBinTree(subtree->rightChild); //ï¿½Ý¹é½¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		else {
-			subtree = nullptr;   //·â±ÕÖ¸Ïò¿Õ×ÓÊ÷µÄÖ¸Õë
+			subtree = nullptr;   //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 			return;
 		}
 	}
@@ -338,7 +338,7 @@ void PrintBTree(BinTreeNode<T>* BT) {
 	}
 	else
 	{
-		std::cout << "Ê÷ÒÑÊä³öÍê±Ï»òÊ÷Îª¿Õ" << std::endl;
+		std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 	}
 }
 template<class T>
@@ -365,21 +365,21 @@ bool BinaryTree<T>::Find(BinTreeNode<T> * subTree, const T &x) const {
 		Find(subTree->leftChild, x);
 		Find(subTree->rightChild, x);
 	}
-	return false; //ËÑË÷Ê§°Ü
+	return false; //ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 }
 void print_menu7()
 {
-	std::cout << "1------Éú³É¶þ²æÊ÷£¬ÒÔ-1ÎªÖÕÖ¹µã\n"
-		<< "2------Êä³öÊ÷\n"
-		<< "3------Ê÷µÄ¸ß¶È\n"
-		<< "4------Ê÷µÄ½áµãµÄ¸öÊý\n"
-		<< "5------ÅÐ¶ÏÊ÷ÊÇ·ñÎª¿Õ\n"
-		<< "6------Ç°Ðò±éÀúÊ÷\n"
-		<< "7------ÖÐÐò±éÀúÊ÷\n"
-		<< "8------ºóÐò±éÀúÊ÷\n"
-		<< "9------²ã´Î±éÀúÊ÷\n"
-		<< " 10-----ÍË³ö\n"
-		<< "ÇëÊäÈëÄúÒª½øÐÐµÄ²Ù×÷£¨1-10£©: ";
+	std::cout << "1------ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1Îªï¿½ï¿½Ö¹ï¿½ï¿½\n"
+		<< "2------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "3------ï¿½ï¿½ï¿½Ä¸ß¶ï¿½\n"
+		<< "4------ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½\n"
+		<< "5------ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½\n"
+		<< "6------Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "7------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "8------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< "9------ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+		<< " 10-----ï¿½Ë³ï¿½\n"
+		<< "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½1-10ï¿½ï¿½: ";
 }
 void CreateBinTree(BinTreeNode<char>* &BT) {
 	std::stack<BinTreeNode<char>*> s;
@@ -429,47 +429,47 @@ void Menu7(BinaryTree<T>& mytree) {
 		{
 		case 1:
 			mytree.CreateBinTree(mytree.root);
-			std::cout << "Ê÷Éú³É³É¹¦" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½É³É¹ï¿½" << std::endl;
 			break;
 		case 2:
-			std::cout << "Êä³öÊ÷" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			PrintBTree(mytree.root);
 			std::cout << std::endl;
 			break;
 		case 3:
-			std::cout << "Ê÷µÄ¸ß¶ÈÎª" << mytree.Height();
+			std::cout << "ï¿½ï¿½ï¿½Ä¸ß¶ï¿½Îª" << mytree.Height();
 			std::cout << std::endl;
 			break;
 		case 4:
-			std::cout << "Ê÷µÄ½áµã¸öÊýÎª" << mytree.Size();
+			std::cout << "ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª" << mytree.Size();
 			std::cout << std::endl;
 			break;
 		case 5:
 			if (mytree.IsEmpty()) {
-				std::cout << "µ±Ç°Ê÷Îª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 			}
 			else
-				std::cout << "µ±Ç°Ê÷²»Îª¿Õ" << std::endl;
+				std::cout << "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << std::endl;
 			break;
 		case 6:
-			std::cout << "Ç°Ðò±éÀúÊ÷(¸ù×óÓÒ)" << std::endl;
+			std::cout << "Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)" << std::endl;
 			mytree.preOrder(mytree.root);
 			std::cout << std::endl;
 			break;
 		case 7:
-			std::cout << "ÖÐÐò±éÀúÊ÷(×ó¸ùÓÒ)" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)" << std::endl;
 			mytree.inOrder(mytree.root);
 			std::cout << std::endl;
 			mytree.inOrder(mytree.root);
 			std::cout << std::endl;
 			break;
 		case 8:
-			std::cout << "ºóÐò±éÀúÊ÷(×óÓÒ¸ù)" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ò¸ï¿½)" << std::endl;
 			mytree.postOrder(mytree.root);
 			std::cout << std::endl;
 			break;
 		case 9:
-			std::cout << "²ã´Î±éÀúÊ÷" << std::endl;
+			std::cout << "ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½" << std::endl;
 			mytree.levelOrder(mytree.root);
 			std::cout << std::endl;
 			break;
@@ -478,14 +478,3 @@ void Menu7(BinaryTree<T>& mytree) {
 		}
 	}
 }
-/*int main()
-{
-	//BinTreeNode<int>* root=new BinTreeNode<int>(8);
-	BinaryTree<int> mytree;
-	//std::cin >> mytree;
-	Menu<int>(mytree);
-
-}*/
-
-
-
