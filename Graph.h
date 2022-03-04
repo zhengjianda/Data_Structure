@@ -1,128 +1,124 @@
 #pragma once
-// Í¼µÄ»ùÀà
+// å›¾çš„åŸºç±»
 #include<iostream>
 #include<queue>
 const int DefaultSize22 = 30;
 template<class T, class E>
 class Graph {
 protected:
-	int maxVertices;//Í¼ÖĞ×î´ó¶¥µãÊı
-	int numEdges; //µ±Ç°±ßÊı
-	int numVertices; //µ±Ç°¶¥µãÊı
-	 //¸ø³ö¶¥µãverterÔÚÍ¼ÖĞµÄÎ»ÖÃ
+	int maxVertices;//å›¾ä¸­æœ€å¤§é¡¶ç‚¹æ•°
+	int numEdges; //å½“å‰è¾¹æ•°
+	int numVertices; //å½“å‰é¡¶ç‚¹æ•°
+	 //ç»™å‡ºé¡¶ç‚¹verteråœ¨å›¾ä¸­çš„ä½ç½®
 public:
 	Graph(int sz = DefaultSize22) {
 		maxVertices = sz;
 	}
 	//~Graph();
 	bool GraphEmpty() const {
-		return (numEdges == 0 ? true : false); //ÎŞ±ß¼´Îª¿Õ
+		return (numEdges == 0 ? true : false); //æ— è¾¹å³ä¸ºç©º
 	}
 	bool GraphFull() const {
 		if (numVertices == maxVertices || numEdges == maxVertices * (maxVertices - 1) / 2)
 			return true;
 		return false;
 	}
-	virtual int NumberOfVertices() {   //·µ»Øµ±Ç°¶¥µãÊı
-		std::cout << "ÎªÉ¶ÊÇÕâÀï°¡" << std::endl;
+	virtual int NumberOfVertices() {   //è¿”å›å½“å‰é¡¶ç‚¹æ•°
 		return numVertices;
 	}
 	virtual int NumberOfEdges() {
 		return numEdges;
 	}
 	virtual void Output() {
-		std::cout << "²»ÊÇ°É" << std::endl;
 	}
 	virtual T getValue(int i) {
 		return 0;
 
-	};  //È¡¶¥µãiµÄÖµ£¬²»ºÏÀí·µ»Ø0
+	};  //å–é¡¶ç‚¹içš„å€¼ï¼Œä¸åˆç†è¿”å›0
 	virtual T getWeight(int v1, int v2) {
 		return 0;
-	}; //È¡±ß(v1,v2£©ÉÏµÄÈ¨Öµ
+	}; //å–è¾¹(v1,v2ï¼‰ä¸Šçš„æƒå€¼
 	virtual int getFirstNeighbor(int v) {
 		return 0;
-	}; //È¡¶¥µãvµÄµÚÒ»¸öÁÚ½Ó¶¥µã
+	}; //å–é¡¶ç‚¹vçš„ç¬¬ä¸€ä¸ªé‚»æ¥é¡¶ç‚¹
 	virtual int getNextNeighbor(int v, int w) {
-		//std::cout << "²»»áÊÇÕâÀï°É£¿£¿£¿" << std::endl;
+		//std::cout << "ä¸ä¼šæ˜¯è¿™é‡Œå§ï¼Ÿï¼Ÿï¼Ÿ" << std::endl;
 		return 0;
-	}//È¡ÁÚ½Ó¶¥µãwµÄÏÂÒ»¸öÁÚ½Ó¶¥µã
+	}//å–é‚»æ¥é¡¶ç‚¹wçš„ä¸‹ä¸€ä¸ªé‚»æ¥é¡¶ç‚¹
 	virtual bool insertVertex(const T& vertex) {
-		std::cout << "²»ÊÇ°É" << std::endl;
 		return true;
-	}; //²åÈëÒ»¸ö¶¥µãvertex
+	}; //æ’å…¥ä¸€ä¸ªé¡¶ç‚¹vertex
 	virtual bool insertEdge(int v1, int v2, E cost) {
-		std::cout << "¸¸ÀàµÄ²åÈë±ß" << std::endl;
 		return true;
-	}//²åÈë±ß(v1,v2) È¨Îªcost
+	}//æ’å…¥è¾¹(v1,v2) æƒä¸ºcost
 	virtual bool removeVertex(int v) {
 		return true;
-	}//É¾È¥¶¥µãvºÍËùÓĞÓëÏà¹ØÁª±ß
+	}//åˆ å»é¡¶ç‚¹vå’Œæ‰€æœ‰ä¸ç›¸å…³è”è¾¹
 	virtual bool removeEdge(int v1, int v2) {
 		return true;
-	}//É¾È¥±ß£¨v1,v2£©
+	}//åˆ å»è¾¹ï¼ˆv1,v2ï¼‰
 	virtual int getVertexPos(T vertex) {
 		return -1;
 	}
 };
 template<class T, class E>
-void DFS(Graph<T, E>& G, const T& v) {    //vÎª¶¥µãµÄĞÅÏ¢
-	// ´Ó¶¥µãv¿ªÊ¼£¬¶ÔÍ¼G½øĞĞÉî¶ÈÓÅÏÈ±éÀúµÄÖ÷¹ı³Ì
-	int  loc, n = G.NumberOfVertices();//È¡Í¼ÖĞ¶¥µã¸öÊı
-	bool* visited = new bool[n]; //´´½¨¸¨ÖúÊı×é£¬±ê¼ÇÊı×é
+void DFS(Graph<T, E>& G, const T& v) {    //vä¸ºé¡¶ç‚¹çš„ä¿¡æ¯
+	// ä»é¡¶ç‚¹vå¼€å§‹ï¼Œå¯¹å›¾Gè¿›è¡Œæ·±åº¦ä¼˜å…ˆéå†çš„ä¸»è¿‡ç¨‹
+	int  loc, n = G.NumberOfVertices();//å–å›¾ä¸­é¡¶ç‚¹ä¸ªæ•°
+	bool* visited = new bool[n]; //åˆ›å»ºè¾…åŠ©æ•°ç»„ï¼Œæ ‡è®°æ•°ç»„
 	for (int i = 0; i < n; i++)
-		visited[i] = 0; //³õÊ¼»¯£¬È«Îªfalse
+		visited[i] = 0; //åˆå§‹åŒ–ï¼Œå…¨ä¸ºfalse
 	std::cout << std::endl;
-	loc = G.getVertexPos(v);  //¸ù¾İ¶¥µãĞÅÏ¢È·¶¨¶¥µãµÄÏÂ±ê
+	loc = G.getVertexPos(v);  //æ ¹æ®é¡¶ç‚¹ä¿¡æ¯ç¡®å®šé¡¶ç‚¹çš„ä¸‹æ ‡
 	DFS(G, loc, visited);
 	delete[] visited;
 }
 template<class T, class E>
-void DFS(Graph<T, E>& G, int v, bool viisted[]) {  //vÎª¶¥µãµÄÏÂ±ê
-	// ´Ó¶¥µãÎ»ÖÃv³ö·¢£¬ÒÔÉî¶ÈÓÅÏÈµÄ´ÎĞò·ÃÎÊËùÒÔ¿É¶ÁÈëµÄÉĞÎ´·ÃÎÊ¹ıµÄ¶¥µã
-	//std::cout << G.getValue(v) << " ";  //·ÃÎÊµ½¶¥µã£¬ÓÃÃû×Ö±íÊ¾
+void DFS(Graph<T, E>& G, int v, bool viisted[]) {  //vä¸ºé¡¶ç‚¹çš„ä¸‹æ ‡
+	// ä»é¡¶ç‚¹ä½ç½®vå‡ºå‘ï¼Œä»¥æ·±åº¦ä¼˜å…ˆçš„æ¬¡åºè®¿é—®æ‰€ä»¥å¯è¯»å…¥çš„å°šæœªè®¿é—®è¿‡çš„é¡¶ç‚¹
+	//std::cout << G.getValue(v) << " ";  //è®¿é—®åˆ°é¡¶ç‚¹ï¼Œç”¨åå­—è¡¨ç¤º
 	std::cout << v << " ";
-	viisted[v] = true;  //Êä³öÍêÖÃÎªtrue
+	viisted[v] = true;  //è¾“å‡ºå®Œç½®ä¸ºtrue
 	int w = G.getFirstNeighbor(v);
 	while (w != -1) {
 		if (viisted[w] == false) {
 			DFS(G, w, viisted);
 		}
-		w = G.getNextNeighbor(v, w);//È¡wµÄÏÂÒ»¸ö½áµã
+		w = G.getNextNeighbor(v, w);//å–wçš„ä¸‹ä¸€ä¸ªç»“ç‚¹
 	}
 }
 template<class T, class E>
 void BFS(Graph<T, E>& G, const T& v) {
-	//´Ó¶¥µãv³ö·¢£¬ÒÔ¹ã¶ÈÓÅÏÈµÄ´ÎĞòºáÏòËÑË÷Í¼£¬Ëã·¨ÖĞÒªÊ¹ÓÃµ½¶ÓÁĞ£¨¹ãËÑÌØµã£©
-	int w, n = G.NumberOfVertices();  //È¡¶¥µãµÄ¸öÊıÎªn
+	//ä»é¡¶ç‚¹vå‡ºå‘ï¼Œä»¥å¹¿åº¦ä¼˜å…ˆçš„æ¬¡åºæ¨ªå‘æœç´¢å›¾ï¼Œç®—æ³•ä¸­è¦ä½¿ç”¨åˆ°é˜Ÿåˆ—ï¼ˆå¹¿æœç‰¹ç‚¹ï¼‰
+	int w, n = G.NumberOfVertices();  //å–é¡¶ç‚¹çš„ä¸ªæ•°ä¸ºn
 	bool* visited = new bool[n];
 	for (int i = 0; i < n; ++i)
-		visited[i] = false;  //³õÊ¼»¯¾ØÕó
-	int loc = G.getVertexPos(v); //»ñÈ¡¶¥µãµÄÏÂ±ê
+		visited[i] = false;  //åˆå§‹åŒ–çŸ©é˜µ
+	int loc = G.getVertexPos(v); //è·å–é¡¶ç‚¹çš„ä¸‹æ ‡
 	//std::cout << G.getValue(loc) << " ";
 	std::cout << loc << " ";
 	visited[loc] = true;
 	std::queue<int> Q;
-	Q.push(loc);//ÈëÕ»
+	Q.push(loc);//å…¥æ ˆ
 	while (!Q.empty()) {
 		loc = Q.front();
-		Q.pop();//È¡Íê¶ÓÍ·£¬¶ÓÍ·³ö¶Ó
+		Q.pop();//å–å®Œé˜Ÿå¤´ï¼Œé˜Ÿå¤´å‡ºé˜Ÿ
 		w = G.getFirstNeighbor(loc);
 		while (w != -1) {
 			if (visited[w] == false) {
 				std::cout << w << " ";
 				visited[w] = true;
-				Q.push(w);  //Èë¶Ó
+				Q.push(w);  //å…¥é˜Ÿ
 			}
-			w = G.getNextNeighbor(loc, w); //ÕÒwµÄÏÂÒ»¸öÁì½áµã
+			w = G.getNextNeighbor(loc, w); //æ‰¾wçš„ä¸‹ä¸€ä¸ªé¢†ç»“ç‚¹
 		}
 	}
 	delete[] visited;
 }
-// ÀûÓÃÉî¶ÈÓÅÏÈËÑË÷½¨Á¢Çó·ÇÁ¬Í¨Í¼µÄÁ¬Í¨·ÖÁ¿µÄÇó·¨
+// åˆ©ç”¨æ·±åº¦ä¼˜å…ˆæœç´¢å»ºç«‹æ±‚éè¿é€šå›¾çš„è¿é€šåˆ†é‡çš„æ±‚æ³•
 template<class T, class E>
 void Components(Graph<T, E>& G) {
-	//Í¨¹ıDFS£¬ÕÒ³öÎŞÏòÍ¼µÄËùÓĞÁ¬Í¨·ÖÁ¿
+	//é€šè¿‡DFSï¼Œæ‰¾å‡ºæ— å‘å›¾çš„æ‰€æœ‰è¿é€šåˆ†é‡
 	int n = G.NumberOfVertices();
 	bool* visited = new bool[n];
 	for (int i = 0; i < n; ++i)
@@ -135,17 +131,17 @@ void Components(Graph<T, E>& G) {
 	}
 	delete[] visited;
 }
-void print_menu9() //²Ëµ¥º¯Êı
+void print_menu9() //èœå•å‡½æ•°
 {
-	std::cout << "1------ÏòÊ÷ÖĞ²åÈëÒ»¸ö¶¥µã\n"
-		<< "2------±ß²åÈë\n"
-		<< "3------¶¥µãÉ¾³ı\n"
-		<< "4------±ßÉ¾³ı\n"
-		<< "5------»ñµÃ¶¥µãµÄ¸öÊı\n"
-		<< "6------»ñµÃ±ßµÄ¸öÊı\n"
-		<< "7------»ñÈ¡¶¥µãµÄĞòºÅ\n"
-		<< "8------»ñÈ¡Í¼ÖĞËùÓĞµÄÁ¬Í¨·ÖÁ¿\n"
-		<< "9------Êä³öÍ¼\n"
-		<< " 10-----ÍË³ö\n"
-		<< "ÇëÊäÈëÄúÒª½øĞĞµÄ²Ù×÷£¨1-10£©: ";
+	std::cout << "1------å‘æ ‘ä¸­æ’å…¥ä¸€ä¸ªé¡¶ç‚¹\n"
+		<< "2------è¾¹æ’å…¥\n"
+		<< "3------é¡¶ç‚¹åˆ é™¤\n"
+		<< "4------è¾¹åˆ é™¤\n"
+		<< "5------è·å¾—é¡¶ç‚¹çš„ä¸ªæ•°\n"
+		<< "6------è·å¾—è¾¹çš„ä¸ªæ•°\n"
+		<< "7------è·å–é¡¶ç‚¹çš„åºå·\n"
+		<< "8------è·å–å›¾ä¸­æ‰€æœ‰çš„è¿é€šåˆ†é‡\n"
+		<< "9------è¾“å‡ºå›¾\n"
+		<< " 10-----é€€å‡º\n"
+		<< "è¯·è¾“å…¥æ‚¨è¦è¿›è¡Œçš„æ“ä½œï¼ˆ1-10ï¼‰: ";
 }
